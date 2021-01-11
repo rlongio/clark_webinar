@@ -112,7 +112,9 @@ if (empty($xfirstx)
 	exit ;
 }
 
-
+session_set_cookie_params(["SameSite" => "lax"]); //none, lax, strict
+session_set_cookie_params(["Secure" => "false"]); //false, true
+session_set_cookie_params(["HttpOnly" => "false"]); //false, true
 session_start();
 if (!isset($_SESSION['num1']) || !isset($_SESSION['num2'])) {
     header( "Location: $errorurl" );

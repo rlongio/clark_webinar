@@ -102,6 +102,9 @@ if (empty($name) || empty($company) || empty($email) || empty($phone) || empty($
 }
 
 // Clean Captcha: random numbers 1 through 5 (1+3, 4+2, 5+3, etc)
+session_set_cookie_params(["SameSite" => "lax"]); //none, lax, strict
+session_set_cookie_params(["Secure" => "false"]); //false, true
+session_set_cookie_params(["HttpOnly" => "false"]); //false, true
 session_start();
 if (!isset($_SESSION['num1']) || !isset($_SESSION['num2'])) {
 	// no known session. cannot validate captcha
