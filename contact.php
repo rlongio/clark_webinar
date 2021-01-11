@@ -1,5 +1,8 @@
 <?php
 session_start();
+session_set_cookie_params(["SameSite" => "Strict"]); //none, lax, strict
+session_set_cookie_params(["Secure" => "true"]); //false, true
+session_set_cookie_params(["HttpOnly" => "true"]); //false, true
 if (!isset($_SESSION['num1']) && !isset($_SESSION['num2'])) {
 $_SESSION['num1'] = rand(1,5);
 $_SESSION['num2'] = rand(1,5);
